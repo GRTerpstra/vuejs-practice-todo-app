@@ -14,7 +14,7 @@
             >
           </v-list-item-content>
           <v-list-item-action
-            @click.stop="$store.commit('deleteTask', task.id)"
+            @click.stop="$store.dispatch('deleteTask', task.id)"
           >
             <v-btn icon>
               <v-icon color="primary">mdi-trash-can-outline</v-icon>

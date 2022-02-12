@@ -6,6 +6,10 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     tasks: [],
+    snackbar: {
+      show: false,
+      message: "",
+    },
   },
   mutations: {
     doneTask(state, id) {
@@ -22,9 +26,31 @@ export default new Vuex.Store({
         done: false,
       };
       state.tasks.push(newTask);
+    },
+    showSnackbar(state, message) {
+      let timeout = 0;
+      if (state.snackbar.show) {
+        state.snackbar.show = false;
+        timeout = 175;
+      };
+      setTimeout(() => {
+        state.snackbar.message = message;
+        state.snackbar.show = true;
+      }, timeout);
+    },
+    hideSnackbar(state) {
+      state.snackbar.show = false;
     }
   },
   actions: {
+    addTask({ commit }, newTaskTitle) {
+      commit('addTask', newTaskTitle);
+      commit('showSnackbar', "Task added");
+    },
+    deleteTask({ commit }, id) {
+      commit('deleteTask', id);
+      commit('showSnackbar', "Task deleted");
+    },
   },
   getters: {
   },
