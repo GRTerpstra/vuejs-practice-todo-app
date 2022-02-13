@@ -2,7 +2,6 @@
   <v-dialog
     ref="dialog"
     :value="true"
-    :return-value.sync="date"
     persistent
     width="290px"
   >
@@ -25,8 +24,6 @@ export default {
   },
   computed: {
     dueDateValid() {
-      console.log(this.dueDate)
-      console.log(this.task.dueDate)
       return this.dueDate != this.task.dueDate;
     },
   },

@@ -6,7 +6,7 @@
     outlined
     label="Add Task"
     hide-details="auto"
-    clearable="true"
+    clearable
   >
     <template v-slot:append>
       <v-icon

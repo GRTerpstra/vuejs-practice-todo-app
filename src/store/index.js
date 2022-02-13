@@ -10,6 +10,7 @@ export default new Vuex.Store({
       show: false,
       message: "",
     },
+    search: null,
   },
   mutations: {
     doneTask(state, id) {
@@ -32,9 +33,10 @@ export default new Vuex.Store({
       state.tasks.filter((task) => task.id === payload.id)[0].title = payload.newTaskTitle;
     },
     editDueDate(state, payload) {
-      console.log(state.tasks.filter((task) => task.id === payload.id)[0].dueDate)
       state.tasks.filter((task) => task.id === payload.id)[0].dueDate = payload.dueDate;
-      console.log(state.tasks.filter((task) => task.id === payload.id)[0].dueDate)
+    },
+    updateSearch(state, search) {
+      state.search = search;
     },
     showSnackbar(state, message) {
       let timeout = 0;
@@ -64,12 +66,20 @@ export default new Vuex.Store({
       commit('editTask', payload);
       commit('showSnackbar', "Task Edited");
     },
-    editDueDate({commit}, payload) {
+    editDueDate({ commit }, payload) {
       commit('editDueDate', payload);
       commit('showSnackbar', "Due date Edited");
     }
   },
   getters: {
+    tasksFiltered(state) {
+      if(state.search == null) {
+        return state.tasks;
+      }
+      else {
+        return state.tasks.filter((task) => task.title.toLowerCase().includes(state.search.toLowerCase()));
+      }
+    }
   },
   modules: {
   }

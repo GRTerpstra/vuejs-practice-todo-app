@@ -8,7 +8,7 @@
       </template>
 
       <v-list class="py-0">
-        <v-list-item-group v-model="selectedItem" color="primary">
+        <v-list-item-group color="primary">
           <v-list-item
             v-for="(item, i) in items"
             :key="i"
