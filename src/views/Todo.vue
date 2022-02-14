@@ -3,6 +3,7 @@
     <field-add-task />
     <task-list v-if="$store.state.tasks.length > 0" class="py-0" />
     <empty-task-list v-else />
+    <button-done-sorting v-if="$store.state.sorting == true" />
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import FieldAddTask from "../components/todo/FieldAddTask.vue";
 import TaskList from "../components/todo/TaskList.vue";
 import EmptyTaskList from "../components/todo/EmptyTaskList.vue";
+import ButtonDoneSorting from "../components/todo/ButtonDoneSorting.vue";
 
 export default {
   name: "Todo",
@@ -17,6 +19,7 @@ export default {
     "field-add-task": FieldAddTask,
     "task-list": TaskList,
     "empty-task-list": EmptyTaskList,
+    "button-done-sorting": ButtonDoneSorting,
   },
   data() {
     return {
@@ -33,5 +36,4 @@ export default {
 </script>
 
 <style >
-
 </style>

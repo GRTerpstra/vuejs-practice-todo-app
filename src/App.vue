@@ -7,14 +7,14 @@
         contain
         height="200"
       >
-      <div class="top-drawer-wrapper mt-15">
-        <v-avatar size="100">
-          <img src="./assets/Profielfoto.jpeg" alt="Gerwin Terpstra" />
-        </v-avatar>
-        <div class="text-center text-subtitle-1 font-weight-bold">
-          Gerwin Terpstra
+        <div class="top-drawer-wrapper mt-15">
+          <v-avatar size="100">
+            <img src="./assets/Profielfoto.jpeg" alt="Gerwin Terpstra" />
+          </v-avatar>
+          <div class="text-center text-subtitle-1 font-weight-bold">
+            Gerwin Terpstra
+          </div>
         </div>
-      </div>
       </v-img>
       <v-list dense nav>
         <v-list-item
@@ -57,7 +57,9 @@
           <search />
         </v-row>
         <v-row class="ma-0 mt-4">
-          <v-app-bar-title class="text-h4 ml-4"> Vuetify Todo </v-app-bar-title>
+          <v-app-bar-title class="text-h4 ml-4">
+            {{ $store.state.appTitle }}
+          </v-app-bar-title>
         </v-row>
         <v-row class="ma-0">
           <live-date-time />
@@ -89,6 +91,9 @@ export default {
       right: null,
     };
   },
+  mounted() {
+    this.$store.dispatch("getTasks");
+  },
   components: {
     snackbar: Snackbar,
     search: Search,
@@ -98,15 +103,15 @@ export default {
 </script>
 
 <style lang="scss">
-  .top-drawer-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.top-drawer-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .header-container {
-    @media(min-width: 960px){
-        max-width: none !important;
-    }
+.header-container {
+  @media (min-width: 960px) {
+    max-width: none !important;
   }
+}
 </style>

@@ -83,6 +83,13 @@ export default {
           this.dialogs.showDelete = true;
         },
       },
+      {
+        title: "Sort",
+        icon: "mdi-arrow-vertical-lock",
+        taskEvent() {
+          this.$store.commit("toggleSorting");
+        },
+      },
     ],
     closeOnClick: true,
   }),

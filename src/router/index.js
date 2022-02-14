@@ -30,4 +30,10 @@ const router = new VueRouter({
   routes
 })
 
+// Navigation guard that executes code before every route.
+router.beforeEach((to, from, next) => {
+  document.title = `${process.env.VUE_APP_TITLE} - ${to.name}`
+  next()
+})
+
 export default router

@@ -1,8 +1,10 @@
 <template>
   <div>
     <v-list-item
-      @click="$store.commit('doneTask', task.id)"
+      :ripple="false"
+      @click="$store.dispatch('doneTask', task.id)"
       :class="{ 'blue lighten-5': task.done }"
+      class="white"
     >
       <v-list-item-action>
         <v-checkbox :input-value="task.done" color="primary"></v-checkbox>
@@ -22,6 +24,11 @@
       <v-list-item-action>
         <task-menu :task="task" />
       </v-list-item-action>
+      <v-list-item-action v-if="$store.state.sorting">
+        <v-btn color="primary" icon>
+          <v-icon class="handle">mdi-drag</v-icon>
+        </v-btn>
+      </v-list-item-action>
     </v-list-item>
     <v-divider />
   </div>
@@ -35,7 +42,7 @@ export default {
   props: ["task"],
   filters: {
     niceDate(value) {
-      return format(new Date(value), 'dd MMM');
+      return format(new Date(value), "dd MMM");
     },
   },
   components: {
@@ -44,5 +51,11 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.sortable-ghost {
+  opacity: 0;
+}
+.sortable-chosen {
+  box-shadow: 0 0 1.25rem rgba(0, 0, 0, 30%);
+}
 </style>

@@ -2,7 +2,7 @@
 
 A project to practice the Vue.js framework with. <br />
 This project has been build using Vue.js version 2.6.14. <br />
-The course https://www.udemy.com/course/vuetify-vuejs-vuex/learn/lecture/23094192 was followed.
+The course that was followed: https://www.udemy.com/course/vuetify-vuejs-vuex/learn/lecture/23094192.
 
 ## Project setup
 ```
