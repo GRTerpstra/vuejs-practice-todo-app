@@ -12,6 +12,7 @@ export default new Vuex.Store({
     // The environment variable that is saved in the .env file in the root of this project is assigned to the variable appTitle.
     appTitle: process.env.VUE_APP_TITLE,
     tasks: [],
+    searchActive: true,
     snackbar: {
       show: false,
       message: "",
@@ -60,6 +61,9 @@ export default new Vuex.Store({
     },
     toggleSorting(state) {
       state.sorting = !state.sorting;
+    },    
+    toggleSorting(state) {
+      this.state.sorting = !this.state.sorting;
     }
   },
   // VueX actions that you can trigger with the dispatch method.
@@ -109,6 +113,14 @@ export default new Vuex.Store({
         commit('editDueDate', payload);
         commit('showSnackbar', "Due date Edited");
       })
+    },
+    toggleSorting({ state, commit }) {
+      if (state.search == "") {
+        commit('toggleSorting');
+      }
+      else {
+        commit('showSnackbar', "lukt niettt kut");
+      }
     },
     getTasks({ commit }) {
       db.collection('tasks').get().then(tasks => {
