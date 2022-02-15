@@ -1,5 +1,5 @@
 <template>
-  <v-btn class="button-done-sorting" @click="$store.commit('toggleSorting')" color="primary">
+  <v-btn class="button-done-sorting" @click="$store.dispatch('toggleSorting')" color="primary">
     Done sorting
   </v-btn>
 </template>
