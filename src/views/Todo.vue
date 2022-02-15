@@ -1,6 +1,6 @@
 <template>
   <div class="todo">
-    <field-add-task />
+    <field-add-task  class="field-add-task"/>
     <task-list v-if="$store.state.tasks.length > 0" class="py-0" />
     <empty-task-list v-else />
     <button-done-sorting v-if="$store.state.sorting == true" />
@@ -35,5 +35,12 @@ export default {
 };
 </script>
 
-<style >
+<style lang="scss" >
+.field-add-task {
+  top: 11.4rem;
+  z-index: 1;
+  background-color: white;
+  position: sticky !important;
+  color: white !important;
+}
 </style>

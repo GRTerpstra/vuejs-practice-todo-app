@@ -1,5 +1,5 @@
 <template>
-    <!-- You can't do two way binding with state properties, so use the value directive here instead of the v-model directive.  -->
+  <!-- You can't do two way binding with state properties, so use the value directive here instead of the v-model directive.  -->
   <v-text-field
     :value="$store.state.search"
     @input="$store.commit('updateSearch', $event)"
@@ -7,11 +7,16 @@
     outlined
     append-icon="mdi-magnify"
     placeholder="Search"
-    @focus="searchActive = true"
-    @blur="searchActive = false"
+    @focus="
+      $store.state.searchActive = true;
+      toggleSorting();
+    "
+    @blur="$store.state.searchActive = false"
     filled
     dense
-    :class="{ closed: !searchActive && $store.state.search == null }"
+    :class="{
+      closed: !$store.state.searchActive && $store.state.search == null,
+    }"
     clearable
   ></v-text-field>
 </template>
@@ -19,10 +24,12 @@
 <script>
 export default {
   name: "Search",
-  data() {
-    return {
-      searchActive: false,
-    };
+  methods: {
+    toggleSorting() {
+      if (this.$store.state.sorting == true) {
+        this.$store.dispatch("toggleSorting");
+      }
+    },
   },
 };
 </script>

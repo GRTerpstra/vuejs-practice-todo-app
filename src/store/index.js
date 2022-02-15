@@ -12,7 +12,7 @@ export default new Vuex.Store({
     // The environment variable that is saved in the .env file in the root of this project is assigned to the variable appTitle.
     appTitle: process.env.VUE_APP_TITLE,
     tasks: [],
-    searchActive: true,
+    searchActive: false,
     snackbar: {
       show: false,
       message: "",
@@ -115,18 +115,17 @@ export default new Vuex.Store({
       })
     },
     toggleSorting({ state, commit }) {
-      if (state.search == "") {
+      if (state.search == null) {
         commit('toggleSorting');
       }
       else {
-        commit('showSnackbar', "lukt niettt kut");
+        commit('showSnackbar', "Can't sort when searching.");
       }
     },
     getTasks({ commit }) {
       db.collection('tasks').get().then(tasks => {
         commit('updateTaskList', tasks);
       })
-
     }
   },
   getters: {

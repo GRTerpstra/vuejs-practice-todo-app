@@ -87,7 +87,7 @@ export default {
         title: "Sort",
         icon: "mdi-arrow-vertical-lock",
         taskEvent() {
-          this.$store.commit("toggleSorting");
+          this.$store.dispatch("toggleSorting");
         },
       },
     ],
