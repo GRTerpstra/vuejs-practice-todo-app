@@ -62,9 +62,6 @@ export default new Vuex.Store({
     toggleSorting(state) {
       state.sorting = !state.sorting;
     },    
-    toggleSorting(state) {
-      this.state.sorting = !this.state.sorting;
-    }
   },
   // VueX actions that you can trigger with the dispatch method.
   // VueX actions can NOT modify the VueX state but CAN commit multiple mutations in one action.
