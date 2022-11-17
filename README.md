@@ -2,8 +2,8 @@
 
 Check out this project live at: https://grterpstra.github.io/vuejs-practice-todo-app/
 
-A project for practicing with the Vue.js framework.
-This project has been build using Vue.js version 2.6.14.
+A project for practicing with the Vue.js framework.\
+This project has been build using Vue.js version 2.6.14.\
 This course was followed: https://www.udemy.com/course/vuetify-vuejs-vuex/learn/lecture/23094192.
 
 ## Project setup
